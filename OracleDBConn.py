@@ -4,15 +4,17 @@ import pandas as pd
 
 class OracleDBConn:
     '''
-    A class to quickly connect to your Oracle databases and retrieve data as pandas DataFrames using SQL.
+    A class to quickly connect to your Oracle databases and retrieve data as Pandas DataFrames using SQL.
 
     ...
+
     Class Variables
     ---------------
     test_dsn : the DSN for your test DB
     prod_dsn : the DSN for your production DB
 
     ...
+
     Attributes
     ----------
     env : str
@@ -28,6 +30,7 @@ class OracleDBConn:
     config_dir : str
         Your configurations Directory.
     '''
+    
     test_dsn = '''
         (DESCRIPTION=
             (ADDRESS=
@@ -61,20 +64,23 @@ class OracleDBConn:
         Constructs an OracleDBConn object.
 
         ...
+
         Parameters
         ----------
         env : str
             Either 'test' or 'prod', which refer to your test DSN and prod DSN, respectively.
-            DSN is not required when env is not None.
+            dsn is not required when env is specified.
         user : str
-            Your username. User input will be requested if None.
+            Your username. 
+            User input will be requested if not specified.
         password : str
-            Your password. User input will be requested if None.
+            Your password. 
+            User input will be requested if not specified.
         dsn : str
-            Your DSN
-            DSN is not required if env is not None.
+            Your DSN.
+            dsn is not required when env is specified.
         config_dir : str
-            Your configurations Directory.
+            Your configuration directory.
         '''
         self.env = env
         self.user = user
@@ -120,9 +126,6 @@ class OracleDBConn:
 
         cursor = connection.cursor()
         self.cursor = cursor
-
-    def cursor(self):
-        return self.cursor
     
     def close_cursor(self):
         self.cursor.close()
