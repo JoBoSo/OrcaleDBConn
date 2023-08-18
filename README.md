@@ -1,5 +1,5 @@
 # OrcaleDBConn
-A class for quickly connecting to your Oracle databases and writing SQL queries that return pandas DataFrames
+A class for quickly connecting to your Oracle databases and writing SQL queries that return pandas DataFrames. Just update the class variables called prod_dsn and test_dsn with your connection parameters (I use tnsnames). All the details are in the docstrings.
 
 ### Example
 ```
